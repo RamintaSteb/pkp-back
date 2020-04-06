@@ -1,0 +1,6 @@
+items\Person\Entity\Person.class
+items\Person\json\Person$PersonBuilder.class
+Controllers\PersonController.class
+items\Person\Repo\PersonRepo.class
+main\Main.class
+items\Person\json\Person.class
