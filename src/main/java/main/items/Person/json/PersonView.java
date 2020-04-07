@@ -3,11 +3,9 @@ package main.items.Person.json;
 import lombok.*;
 
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Person {
-    private long id;
+public class PersonView {
     private String name;
     private String surname;
     private String username;
@@ -15,6 +13,5 @@ public class Person {
     private String address;
     private String phoneNumber;
     private String password;
-    private String bios;
-    
+    private String shortBios;
 }

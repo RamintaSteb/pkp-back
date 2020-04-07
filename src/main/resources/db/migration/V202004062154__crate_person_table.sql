@@ -1,11 +1,13 @@
 create table person (
-id          integer,
+id          integer not null auto_increment,
 name        varchar(50),
 surname     varchar(50),
 username    varchar(255),
 email       varchar(50),
 address     varchar(255),
-phoneNumber varchar(50),
+phone_number varchar(50),
 password    varchar(50),
-bios        varchar(255)
+bios        varchar(255),
+
+primary key (id)
 );

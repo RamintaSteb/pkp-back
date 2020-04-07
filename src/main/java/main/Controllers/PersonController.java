@@ -1,29 +1,21 @@
 package main.Controllers;
 
-
-import main.items.Person.Entity.Person;
-import main.items.Person.Repo.PersonRepo;
+import main.items.Person.Service.PersonService;
+import main.items.Person.json.PersonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@CrossOrigin
 public class PersonController {
+
     @Autowired
-    private PersonRepo personRepo;
+    private PersonService personService;
 
-    @RequestMapping("/")
-    public @ResponseBody
-    String addNewUser() {
-        return "";
+    @RequestMapping("/signup")
+    public @ResponseBody void addNewUser(@RequestBody PersonView personView) {
+        personService.createNewUser(personView);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    Iterable<Person> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return personRepo.findAll();
-    }
 }
