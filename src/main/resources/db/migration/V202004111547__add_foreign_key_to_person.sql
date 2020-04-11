@@ -1,0 +1,1 @@
+alter table person add foreign key (group_id) references persons_group(id);
