@@ -1,8 +1,10 @@
 package main.items.Person.Entity;
 
 import lombok.*;
+import main.items.WorkTime.Entity.WorkTime;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder(toBuilder = true)
@@ -38,6 +40,9 @@ public class Person {
 
     @Column(name = "bios")
     private String bios;
-    //ToDo: ManyToOne: private long gruopId;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<WorkTime> workTimeList;
+
 }
 

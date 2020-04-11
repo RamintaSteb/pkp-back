@@ -4,7 +4,6 @@ import lombok.*;
 import main.items.Person.Entity.Person;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Builder(toBuilder = true)
@@ -23,4 +22,9 @@ public class Group {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "administrator_id")
+    private Person administratorPerson;
+
 }
