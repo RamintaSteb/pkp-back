@@ -2,6 +2,8 @@ package main.items.Person.Entity;
 
 import lombok.*;
 import main.items.Board.Entity.Board;
+import main.items.Group.Entity.Group;
+import main.items.Task.Entity.Task;
 import main.items.WorkTime.Entity.WorkTime;
 
 import javax.persistence.*;
@@ -49,6 +51,13 @@ public class Person {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "persons")
     private Set<Board> boards = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "performer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Task> tasks;
 
 }
 

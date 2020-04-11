@@ -4,6 +4,7 @@ import lombok.*;
 import main.items.Person.Entity.Person;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder(toBuilder = true)
@@ -26,5 +27,8 @@ public class Group {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "administrator_id")
     private Person administratorPerson;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)
+    private List<Person> personList;
 
 }
