@@ -15,16 +15,16 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "address")
@@ -33,12 +33,11 @@ public class Person {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "password", nullable = false)
+    private int password;
 
     @Column(name = "bios")
     private String bios;
     //ToDo: ManyToOne: private long gruopId;
-
 }
 
