@@ -1,8 +1,11 @@
 package main.items.Board.Entity;
 
 import lombok.*;
+import main.items.Person.Entity.Person;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder(toBuilder = true)
@@ -21,5 +24,9 @@ public class Board {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "board_person", joinColumns = @JoinColumn(name = "board_id"), inverseJoinColumns = @JoinColumn(name = "person_id"))
+    private Set<Person> persons = new HashSet<>();
 
 }

@@ -1,10 +1,13 @@
 package main.items.Person.Entity;
 
 import lombok.*;
+import main.items.Board.Entity.Board;
 import main.items.WorkTime.Entity.WorkTime;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder(toBuilder = true)
@@ -43,6 +46,9 @@ public class Person {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WorkTime> workTimeList;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "persons")
+    private Set<Board> boards = new HashSet<>();
 
 }
 
