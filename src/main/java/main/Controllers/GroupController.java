@@ -1,6 +1,7 @@
 package main.Controllers;
 
 import main.items.Group.Service.GroupService;
+import main.items.Group.json.GroupDataView;
 import main.items.Group.json.GroupView;
 import main.items.Group.json.GroupViewForUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class GroupController {
     @PostMapping("/delete")
     public void deleteGroup(@RequestBody Long id) {
         groupService.deleteGroup(id);
+    }
+
+    @GetMapping("/group")
+    public GroupDataView getGroupData(@RequestParam Long id) {
+        return groupService.getGroupData(id);
     }
 }
