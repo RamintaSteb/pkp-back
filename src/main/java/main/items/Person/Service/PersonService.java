@@ -1,11 +1,18 @@
 package main.items.Person.Service;
 
-import main.items.Person.json.LoginCredentialsView;
-import main.items.Person.json.PersonEssentialDataView;
-import main.items.Person.json.PersonView;
+import main.items.Person.json.*;
 
 public interface PersonService {
-    void createNewUser(PersonView personView);
+
+    PersonEssentialDataView createNewUser(PersonView personView);
 
     PersonEssentialDataView login(LoginCredentialsView loginCredentialsView);
+
+    void deleteUser(Long id);
+
+    void updatePerson(FullPersonView fullPersonView);
+
+    FullPersonView getUserData(Long id);
+
+    void updatePassword(UpdatePasswordView updatePasswordView);
 }
