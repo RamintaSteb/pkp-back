@@ -4,8 +4,8 @@ import lombok.*;
 import main.items.Person.Entity.Person;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Builder(toBuilder = true)
@@ -23,10 +23,10 @@ public class WorkTime {
     private LocalDate date;
 
     @Column(name = "works_from", nullable = false)
-    private Time from;
+    private LocalTime from;
 
     @Column(name = "works_to", nullable = false)
-    private Time to;
+    private LocalTime to;
 
     @Column(name = "is_working_from_home", nullable = false)
     private boolean workFromHome;
@@ -34,6 +34,5 @@ public class WorkTime {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     private Person person;
-
 }
 

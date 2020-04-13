@@ -1,6 +1,7 @@
 package main.items.WorkTime.Service.impl;
 
 import lombok.RequiredArgsConstructor;
+import main.items.Person.Repo.PersonRepo;
 import main.items.WorkTime.Entity.WorkTime;
 import main.items.WorkTime.Service.WorkTimeService;
 import main.items.WorkTime.Repo.WorkTimeRepo;
@@ -17,6 +18,9 @@ public class WorkTimeServiceImpl implements WorkTimeService {
     @Autowired
     private WorkTimeRepo workTimeRepo;
 
+    @Autowired
+    private PersonRepo personRepo;
+
     @Override
     public void createNewSchedule(WorkTimeView workTimeView) {
         workTimeRepo.save(buildSchedule(workTimeView));
@@ -24,10 +28,11 @@ public class WorkTimeServiceImpl implements WorkTimeService {
 
     private WorkTime buildSchedule(WorkTimeView workTimeView) {
         return WorkTime.builder()
-                .date(workTimeView.getWork_date())
-                .from(workTimeView.getWorks_from())
-                .to(workTimeView.getWorks_to())
-                .workFromHome(workTimeView.is_working_from_home())
+                .person(personRepo.findById(workTimeView.getPersonId()).orElse(null))
+                .date(workTimeView.getDate())
+                .from(workTimeView.getFrom())
+                .to(workTimeView.getTo())
+                .workFromHome(workTimeView.isWorkFromHome())
                 .build();
     }
 

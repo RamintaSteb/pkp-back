@@ -5,6 +5,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -13,17 +14,17 @@ import java.time.LocalDate;
 public class WorkTimeView {
 
         @NotNull
-        private long person_id;
+        private Long personId;
 
         @NotNull
-        private LocalDate work_date;
+        private LocalDate date;
 
         @NotNull
-        private Time works_from;
+        private LocalTime from;
 
         @NotNull
-        private Time works_to;
+        private LocalTime to;
 
         @NotNull
-        private boolean is_working_from_home;
+        private boolean workFromHome;
 }
