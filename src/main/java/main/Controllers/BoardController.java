@@ -22,7 +22,7 @@ public class BoardController {
     }
 
     @PostMapping("/updateBoard")
-    public Long updateBoard(@RequestBody BoardView boardView, @RequestBody Long id) {
+    public Long updateBoard(@RequestBody BoardView boardView, @RequestParam Long id) {
         return boardService.updateBoard(boardView, id);
     }
 
