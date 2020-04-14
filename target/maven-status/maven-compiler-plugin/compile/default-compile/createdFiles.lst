@@ -1,6 +1,7 @@
-items\Person\Entity\Person.class
-items\Person\json\Person$PersonBuilder.class
-Controllers\PersonController.class
-items\Person\Repo\PersonRepo.class
+main\items\WorkTime\json\WorkTimeView$WorkTimeViewBuilder.class
+main\items\WorkTime\Service\impl\WorkTimeServiceImpl.class
+main\items\WorkTime\Repo\WorkTimeRepo.class
 main\Main.class
-items\Person\json\Person.class
+main\Controllers\WorkTimeController.class
+main\items\WorkTime\json\WorkTimeView.class
+main\items\WorkTime\Service\WorkTimeService.class
