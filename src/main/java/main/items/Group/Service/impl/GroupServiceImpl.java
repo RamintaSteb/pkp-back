@@ -103,6 +103,9 @@ public class GroupServiceImpl implements GroupService {
 
     private List<Person> buildPersons(List<Long> idsList) {
         List<Person> personList = new ArrayList<>();
+        if(personList.isEmpty()) {
+            return personList;
+        }
         idsList.forEach(personId -> {
             personList.add(personRepo.findById(personId).orElse(null));
         });

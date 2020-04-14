@@ -1,5 +1,14 @@
-C:\Users\papug\OneDrive\Desktop\pkp\src\main\java\Controllers\PersonController.java
-C:\Users\papug\OneDrive\Desktop\pkp\src\main\java\items\Person\Entity\Person.java
-C:\Users\papug\OneDrive\Desktop\pkp\src\main\java\items\Person\json\Person.java
-C:\Users\papug\OneDrive\Desktop\pkp\src\main\java\items\Person\Repo\PersonRepo.java
-C:\Users\papug\OneDrive\Desktop\pkp\src\main\java\main\Main.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\Entity\Person.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\Controllers\PersonController.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\json\LoginCredentialsView.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\Main.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\WorkTime\Entity\WorkTime.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\json\PersonEssentialDataView.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\Service\PersonService.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\Service\impl\PersonServiceImpl.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Task\Enum\TaskStatus.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Board\Entity\Board.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\json\PersonView.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Task\Entity\Task.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Group\Entity\Group.java
+D:\Documents\uni\Programu kurimo procesas\App\pkp-back-new\src\main\java\main\items\Person\Repo\PersonRepo.java

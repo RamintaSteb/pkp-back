@@ -21,7 +21,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "description", nullable = false)
@@ -29,7 +29,7 @@ public class Board {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "board_person", joinColumns = @JoinColumn(name = "board_id"), inverseJoinColumns = @JoinColumn(name = "person_id"))
-    private Set<Person> persons = new HashSet<>();
+    private List<Person> assignedUsers;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL)
     private List<Task> tasks;

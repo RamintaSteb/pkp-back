@@ -8,6 +8,7 @@ import main.items.Task.Enum.TaskStatus;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,20 +31,21 @@ public class Task {
     private String description;
 
     @Column(name = "time", nullable = false)
-    private Time time;
+    private float estimatedTime;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private TaskStatus status;
 
     @Column(name = "start_date", nullable = false)
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     @Column(name = "deadline_date", nullable = false)
-    private LocalDateTime deadlineDate;
+    private LocalDate deadlineDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
-    private Person creator;
+    private Person adminUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id")
@@ -55,5 +57,5 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
-    private Person performer;
+    private Person assignee;
 }
