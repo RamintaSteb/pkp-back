@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Validated
 @RequiredArgsConstructor
@@ -20,8 +23,8 @@ public class PersonServiceImpl implements PersonService {
     private PersonRepo personRepo;
 
     @Override
-    public void createNewUser(PersonView personView) {
-        personRepo.save(buildPerson(personView));
+    public PersonEssentialDataView createNewUser(PersonView personView) {
+        return buildPersonEssentialDataView(personRepo.save(buildPerson(personView)));
     }
 
     @Override

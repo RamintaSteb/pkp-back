@@ -14,7 +14,7 @@ public class GroupController {
     private GroupService groupService;
 
     @PostMapping("/createGroup")
-    public Long addNewUser(@RequestBody GroupView groupView) {
+    public Long addNewGroup(@RequestBody GroupView groupView) {
         return groupService.createNewGroup(groupView);
     }
 

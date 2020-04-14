@@ -7,6 +7,7 @@ import main.items.Task.Entity.Task;
 import main.items.WorkTime.Entity.WorkTime;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -49,14 +50,14 @@ public class Person {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WorkTime> workTimeList;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "persons")
-    private Set<Board> boards = new HashSet<>();
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "assignedUsers")
+    private List<Board> boards = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group group;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "performer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "assignee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
 
 }
