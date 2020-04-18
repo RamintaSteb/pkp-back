@@ -1,1 +1,0 @@
-ALTER TABLE person MODIFY group_id integer NULL;
