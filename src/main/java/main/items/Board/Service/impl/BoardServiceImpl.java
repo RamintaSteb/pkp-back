@@ -11,6 +11,9 @@ import main.items.Person.Repo.PersonRepo;
 import main.items.Person.json.PersonEssentialDataView;
 import main.items.Task.Entity.Task;
 import main.items.Task.Repo.TaskRepo;
+import main.items.Task.json.TaskDataView;
+import main.items.Task.json.TaskInformationView;
+import main.items.WorkTime.json.WorkTimeDataView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -106,14 +109,21 @@ public class BoardServiceImpl implements BoardService {
                 .title(board.getTitle())
                 .description(board.getDescription())
                 .assignedUsers(builAssignedUsers(board.getAssignedUsers()))
-                .tasks(builBoardsTasks(board.getTasks()))
+                .taskData(builBoardsTasks(board.getTasks()))
                 .build();
     }
 
-    private List<Long> builBoardsTasks(List<Task> tasksList) {
-        List<Long> idsList = new ArrayList<>();
-        tasksList.forEach(task -> idsList.add(task.getId()));
-        return idsList;
+    private List<TaskInformationView> builBoardsTasks(List<Task> tasksList) {
+        List<TaskInformationView> taskssList = new ArrayList<>();
+        tasksList.forEach(Task -> {
+            taskssList.add(TaskInformationView.builder()
+                    .id(Task.getId())
+                    .title(Task.getTitle())
+                    .estimatedTime(Task.getEstimatedTime())
+                    .status(Task.getStatus())
+                    .build());
+        });
+        return taskssList;
     }
 
     private List<Long> builAssignedUsers(List<Person> personList) {
