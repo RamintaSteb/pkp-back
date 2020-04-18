@@ -17,7 +17,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @Validated
@@ -62,14 +62,14 @@ public class GroupServiceImpl implements GroupService {
     }
 
     //ToDo: pacheckint ar veikia, greiciausiai ne :/
-    private long getTasksTime(List<Person> personList) {
-        AtomicLong time = new AtomicLong(Time.valueOf("00:00:00").getTime());
+    private float getTasksTime(List<Person> personList) {
+        AtomicReference<Float> time = new AtomicReference<>((float) 0);
         personList.forEach(person -> {
             person.getTasks().forEach(task -> {
-                time.set(time.get() + task.getTime().getTime());
+                time.set(time.get() + task.getEstimatedTime());
             });
         });
-        return new Time(time.get()).getHours();
+        return time.get();
     }
 
     //ToDo: pacheckint ar veikia, greiciausiai ne :/

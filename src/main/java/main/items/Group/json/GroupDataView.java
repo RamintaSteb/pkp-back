@@ -16,5 +16,5 @@ public class GroupDataView {
     private String administratorFullName;
     private int numberOfMembers;
     private Long membersTasksNumber;
-    private Long membersTasksTime;
+    private float membersTasksTime;
 }
