@@ -25,7 +25,5 @@ public class BoardView {
 
     private List<Long> assignedUsers;
 
-    private List<Long> tasks;
-
     private List<TaskInformationView> taskData;
 }

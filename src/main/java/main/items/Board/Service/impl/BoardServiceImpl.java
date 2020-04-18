@@ -137,7 +137,7 @@ public class BoardServiceImpl implements BoardService {
                 .title(boardView.getTitle())
                 .description(boardView.getDescription())
                 .assignedUsers(boardView.getAssignedUsers() == null ? null : personRepo.findAllById(boardView.getAssignedUsers()))
-                .tasks(boardView.getTasks() == null ? null : taskRepo.findAllById(boardView.getTasks()))
+                .tasks(null)
                 .build();
     }
 }
