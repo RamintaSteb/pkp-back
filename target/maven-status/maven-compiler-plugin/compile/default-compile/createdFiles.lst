@@ -15,6 +15,7 @@ main\items\Board\Entity\Board$BoardBuilder.class
 main\items\Task\json\TaskInformationView.class
 main\items\Person\json\PersonView.class
 main\items\Task\Service\TaskService.class
+main\items\Task\json\TaskUpdateView$TaskUpdateViewBuilder.class
 main\items\Group\json\GroupDataView.class
 main\items\Person\Repo\PersonRepo.class
 main\items\WorkTime\json\WorkTimeListView.class
@@ -34,6 +35,7 @@ main\items\Task\json\TaskDataView$TaskDataViewBuilder.class
 main\Controllers\GroupController.class
 main\items\Board\Service\BoardService.class
 main\items\Person\Service\impl\PersonServiceImpl.class
+main\items\Task\json\TaskUpdateView.class
 main\items\WorkTime\json\WorkTimeDataView$WorkTimeDataViewBuilder.class
 main\items\Board\Repo\BoardRepo.class
 main\items\Group\json\GroupView.class

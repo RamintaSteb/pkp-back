@@ -1,6 +1,7 @@
 package main.items.Task.Service.impl;
 
 import lombok.RequiredArgsConstructor;
+import main.items.Board.Entity.Board;
 import main.items.Board.Repo.BoardRepo;
 import main.items.Group.Repo.GroupRepo;
 import main.items.Person.Repo.PersonRepo;
@@ -8,6 +9,7 @@ import main.items.Task.Entity.Task;
 import main.items.Task.Repo.TaskRepo;
 import main.items.Task.Service.TaskService;
 import main.items.Task.json.TaskDataView;
+import main.items.Task.json.TaskUpdateView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -32,6 +34,22 @@ public class TaskServiceImpl implements TaskService {
 
     public void createNewTask(TaskDataView taskDataView) {
         taskRepo.save(buildTask(taskDataView));
+    }
+
+    public long updateTask(TaskUpdateView taskUpdateView) {
+        Task task = taskRepo.findById(taskUpdateView.getId()).orElse(null);
+        if (task == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return taskRepo.save(  task.toBuilder()
+                .title(taskUpdateView.getTitle())
+                .description(taskUpdateView.getDescription())
+                .estimatedTime(taskUpdateView.getEstimatedTime())
+                .startDate(taskUpdateView.getStartDate())
+                .deadlineDate(taskUpdateView.getDeadlineDate())
+                .assignee(taskUpdateView.getAssignee() == null ? null : personRepo.findById(taskUpdateView.getAssignee()).orElse(null))
+                .build()).getId();
     }
 
     private Task buildTask(TaskDataView taskDataView) {

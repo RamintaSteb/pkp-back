@@ -4,6 +4,7 @@ C:\pkp-back-master\src\main\java\main\items\Person\Service\impl\PersonServiceImp
 C:\pkp-back-master\src\main\java\main\items\Group\json\GroupView.java
 C:\pkp-back-master\src\main\java\main\Controllers\TaskController.java
 C:\pkp-back-master\src\main\java\main\items\Board\json\BoardEssentialsView.java
+C:\pkp-back-master\src\main\java\main\items\Task\json\TaskUpdateView.java
 C:\pkp-back-master\src\main\java\main\items\Task\Repo\TaskRepo.java
 C:\pkp-back-master\src\main\java\main\items\Board\Repo\BoardRepo.java
 C:\pkp-back-master\src\main\java\main\items\WorkTime\Service\WorkTimeService.java
