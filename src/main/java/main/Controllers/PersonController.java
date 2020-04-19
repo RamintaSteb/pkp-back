@@ -5,6 +5,8 @@ import main.items.Person.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class PersonController {
@@ -40,6 +42,12 @@ public class PersonController {
     @PostMapping("/updatePassword")
     public void updateUserPassword(@RequestBody UpdatePasswordView updatePasswordView) {
         personService.updatePassword(updatePasswordView);
+    }
+
+    @GetMapping("/getAllUsersForGroups")
+    public @ResponseBody
+    List<PersonEssentialDataView> getAllUsers() {
+        return personService.getAllUsersForGroups();
     }
 
 }
