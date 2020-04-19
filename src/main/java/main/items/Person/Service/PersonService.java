@@ -2,6 +2,8 @@ package main.items.Person.Service;
 
 import main.items.Person.json.*;
 
+import java.util.List;
+
 public interface PersonService {
 
     PersonEssentialDataView createNewUser(PersonView personView);
@@ -15,4 +17,6 @@ public interface PersonService {
     FullPersonView getUserData(Long id);
 
     void updatePassword(UpdatePasswordView updatePasswordView);
+
+    List<PersonEssentialDataView> getAllUsersForGroups();
 }

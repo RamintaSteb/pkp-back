@@ -54,6 +54,25 @@ public class PersonServiceImpl implements PersonService {
                 .build());
     }
 
+    @Override
+    public List<PersonEssentialDataView> getAllUsersForGroups() {
+        return buildPersons(personRepo.findAll());
+    }
+
+    private List<PersonEssentialDataView> buildPersons(List<Person> personList) {
+        List<PersonEssentialDataView> personEssentialDataViews = new ArrayList<>();
+        personList.forEach(person -> {
+            if (person.getGroup() == null) {
+                personEssentialDataViews.add(PersonEssentialDataView.builder()
+                        .name(person.getName())
+                        .surname(person.getSurname())
+                        .id(person.getId())
+                        .build());
+            }
+        });
+        return personEssentialDataViews;
+    }
+
     private FullPersonView buildPersonView(Person person) {
         return FullPersonView.builder()
                 .id(person.getId())

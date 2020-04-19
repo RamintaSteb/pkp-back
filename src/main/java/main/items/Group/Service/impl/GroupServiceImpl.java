@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -31,12 +30,19 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Long createNewGroup(GroupView groupView) {
-        return groupRepo.save(buildGroup(groupView)).getId();
+        Group group = groupRepo.save(buildGroup(groupView));
+        if (!groupView.getPersonListIds().isEmpty()) {
+            groupView.getPersonListIds().forEach(personId -> updatePerson(group, personId));
+        }
+        return group.getId();
     }
 
     @Override
     public void updateGroup(GroupViewForUpdate groupViewForUpdate) {
-        groupRepo.save(buildGroup(groupViewForUpdate));
+        Group group = groupRepo.save(buildGroup(groupViewForUpdate));
+        if (!groupViewForUpdate.getPersonListIds().isEmpty()) {
+            groupViewForUpdate.getPersonListIds().forEach(personId -> updatePerson(group, personId));
+        }
     }
 
     @Override
@@ -47,6 +53,19 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public GroupDataView getGroupData(Long id) {
         return buildGroupDataView(groupRepo.findById(id).orElse(null));
+    }
+
+    @Override
+    public List<GroupDataView> findAllGroups() {
+        return buildGroupsInfo(groupRepo.findAll());
+    }
+
+    private List<GroupDataView> buildGroupsInfo(List<Group> groups) {
+        List<GroupDataView> groupDataViews = new ArrayList<>();
+        groups.forEach(group -> {
+            groupDataViews.add(buildGroupDataView(group));
+        });
+        return groupDataViews;
     }
 
     private GroupDataView buildGroupDataView(Group group) {
@@ -87,7 +106,6 @@ public class GroupServiceImpl implements GroupService {
                 .title(groupView.getTitle())
                 .description(groupView.getDescription())
                 .administratorPerson(personRepo.findById(groupView.getAdministratorPersonId()).orElse(null))
-                .personList(buildPersons(groupView.getPersonListIds()))
                 .build();
     }
 
@@ -97,18 +115,13 @@ public class GroupServiceImpl implements GroupService {
                 .title(groupView.getTitle())
                 .description(groupView.getDescription())
                 .administratorPerson(personRepo.findById(groupView.getAdministratorPersonId()).orElse(null))
-                .personList(buildPersons(groupView.getPersonListIds()))
                 .build();
     }
 
-    private List<Person> buildPersons(List<Long> idsList) {
-        List<Person> personList = new ArrayList<>();
-        if(personList.isEmpty()) {
-            return personList;
-        }
-        idsList.forEach(personId -> {
-            personList.add(personRepo.findById(personId).orElse(null));
-        });
-        return personList;
+    private void updatePerson(Group group, Long personId) {
+        Person person = personRepo.findById(personId).orElse(null);
+        personRepo.save(person.toBuilder()
+                .group(group)
+                .build());
     }
 }

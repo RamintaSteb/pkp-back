@@ -7,6 +7,8 @@ import main.items.Group.json.GroupViewForUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class GroupController {
@@ -32,5 +34,10 @@ public class GroupController {
     @GetMapping("/group")
     public GroupDataView getGroupData(@RequestParam Long id) {
         return groupService.getGroupData(id);
+    }
+
+    @GetMapping("/getAllGroups")
+    public List<GroupDataView> getAllGroups() {
+        return groupService.findAllGroups();
     }
 }
