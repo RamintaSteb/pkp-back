@@ -1,1 +1,0 @@
-alter table person add column group_id integer not null;

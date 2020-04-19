@@ -33,8 +33,10 @@ main\items\WorkTime\json\WorkTimeDataView.class
 main\items\Group\Service\impl\GroupServiceImpl.class
 main\items\WorkTime\json\WorkTimeView.class
 main\items\Group\json\GroupViewForUpdate$GroupViewForUpdateBuilder.class
+main\Controllers\BoardController.class
 main\items\Group\json\GroupViewForUpdate.class
 main\items\Person\json\PersonEssentialDataView$PersonEssentialDataViewBuilder.class
+main\items\Task\Service\impl\TaskServiceImpl.class
 main\items\Group\Entity\Group.class
 main\Controllers\PersonController.class
 main\items\Group\json\GroupView$GroupViewBuilder.class

@@ -1,1 +1,0 @@
-alter table task modify column time integer;

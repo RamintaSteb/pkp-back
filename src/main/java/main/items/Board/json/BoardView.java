@@ -4,8 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import main.items.Person.Entity.Person;
-import main.items.Task.Entity.Task;
+import main.items.Task.json.TaskInformationView;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -27,4 +26,6 @@ public class BoardView {
     private List<Long> assignedUsers;
 
     private List<Long> tasks;
+
+    private List<TaskInformationView> taskData;
 }
