@@ -19,4 +19,6 @@ public interface PersonService {
     void updatePassword(UpdatePasswordView updatePasswordView);
 
     List<PersonEssentialDataView> getAllUsersForGroups();
+
+    List<PersonEssentialDataView> getAllUsers();
 }

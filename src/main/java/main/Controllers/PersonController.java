@@ -46,8 +46,14 @@ public class PersonController {
 
     @GetMapping("/getAllUsersForGroups")
     public @ResponseBody
-    List<PersonEssentialDataView> getAllUsers() {
+    List<PersonEssentialDataView> getAllUsersForGroups() {
         return personService.getAllUsersForGroups();
+    }
+
+    @GetMapping("/getAllUsers")
+    public @ResponseBody
+    List<PersonEssentialDataView> getAllUsers() {
+        return personService.getAllUsers();
     }
 
 }
