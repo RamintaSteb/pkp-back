@@ -1,9 +1,6 @@
 package main.items.Board.json;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import main.items.Task.json.TaskInformationView;
 
 import javax.validation.constraints.NotNull;
@@ -12,6 +9,7 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class BoardView {
 
     @NotNull
