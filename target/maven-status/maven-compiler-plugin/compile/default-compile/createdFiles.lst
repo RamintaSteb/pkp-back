@@ -24,6 +24,7 @@ main\items\WorkTime\Service\WorkTimeService.class
 main\items\Task\Entity\Task$TaskBuilder.class
 main\items\Person\json\PersonView$PersonViewBuilder.class
 main\items\Task\Enum\TaskStatus.class
+tests\TestApplication.class
 main\items\Person\json\FullPersonView.class
 main\items\Person\Service\PersonService.class
 main\items\Task\json\TaskInformationView$TaskInformationViewBuilder.class
@@ -45,6 +46,7 @@ main\items\Group\Service\impl\GroupServiceImpl.class
 main\items\WorkTime\json\WorkTimeView.class
 main\items\Board\json\BoardEssentialsView.class
 main\items\Group\json\GroupViewForUpdate$GroupViewForUpdateBuilder.class
+tests\PersonServiceTest.class
 main\Controllers\BoardController.class
 main\items\Group\json\GroupViewForUpdate.class
 main\items\Person\json\PersonEssentialDataView$PersonEssentialDataViewBuilder.class

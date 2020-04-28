@@ -32,9 +32,6 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private PersonRepo personRepo;
 
-    @Autowired
-    private TaskRepo taskRepo;
-
     @Override
     public Long createNewBoard(BoardView boardView) {
         return boardRepo.save(buildBoard(boardView)).getId();
