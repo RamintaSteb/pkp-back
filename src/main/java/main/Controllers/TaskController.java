@@ -1,6 +1,7 @@
 package main.Controllers;
 
 import main.items.Task.Service.TaskService;
+import main.items.Task.json.TaskDataMainView;
 import main.items.Task.json.TaskDataView;
 import main.items.Task.json.TaskUpdateView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class TaskController {
     @PostMapping("/updateTask")
     public long updateTask(@RequestBody TaskUpdateView taskUpdateView) {
         return taskService.updateTask(taskUpdateView);
+    }
+
+    @GetMapping("/taskData")
+    public TaskDataMainView getTaskData(@RequestParam Long id) {
+        return taskService.getTaskData(id);
     }
 
 }

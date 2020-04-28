@@ -1,6 +1,9 @@
 package main.items.Task.json;
-import lombok.*;
-import main.items.Task.Enum.TaskStatus;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -8,8 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class TaskDataView {
-
+public class TaskDataMainView {
     @NotNull
     private String title;
 
@@ -24,16 +26,7 @@ public class TaskDataView {
     @NotNull
     private LocalDate deadlineDate;
 
-    private Long adminUserId;
+    private String assigneeFullName;
 
-    @NotNull
-    private Long boardId;
-
-    @NotNull
-    private TaskStatus status;
-
-    private Long assignee;
-
-    private Long groupId;
-
+    private Long assigneeId;
 }

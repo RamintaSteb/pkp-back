@@ -47,12 +47,11 @@ public class BoardServiceImpl implements BoardService {
             throw new IllegalArgumentException();
         }
 
-        board.toBuilder()
-                .title(boardView.getTitle())
-                .description(boardView.getDescription())
-                .assignedUsers(boardView.getAssignedUsers() == null ? null : personRepo.findAllById(boardView.getAssignedUsers()))
-                .build();
-         return boardRepo.save(board).getId();
+        return boardRepo.save(board.toBuilder()
+                 .title(boardView.getTitle())
+                 .description(boardView.getDescription())
+                 .assignedUsers(boardView.getAssignedUsers() == null ? null : personRepo.findAllById(boardView.getAssignedUsers()))
+                 .build()).getId();
     }
 
     @Override

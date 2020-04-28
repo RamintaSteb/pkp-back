@@ -25,7 +25,7 @@ public class PersonController {
     }
 
     @PostMapping("/deleteUser")
-    public void deleteUser(@RequestBody Long id) {
+    public void deleteUser(@RequestParam Long id) {
         personService.deleteUser(id);
     }
 
